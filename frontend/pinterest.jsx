@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import configureStore from './store/store';
-// import Root from './components/root';
-import {signup, login, logout} from './util/session_api_util';
+import configureStore from './store/store';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    // const store = configureStore();
+    const store = configureStore();
     //FOR TESTING
-    window.signup = signup;
-    window.login = login; 
-    window.logout = logout;
+    window.getState = store.getState;
+    window.dispatch = store.dispatch;
     //TEST END
-    ReactDOM.render(<h1>Pinterest</h1>, root);
+    ReactDOM.render(<Root store={store} />, root);
 });
