@@ -18,7 +18,7 @@ function Modal({ modal, closeModal }) {
             break;
         default:
             // return null;
-            component = <SignupFormContainer />;
+            component = <SessionFormContainer />;
     }
 
     return (

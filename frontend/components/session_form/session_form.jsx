@@ -15,6 +15,10 @@ class SessionForm extends React.Component {
         return e => this.setState({[field]: e.currentTarget.value});
     }
 
+    login() {
+ 
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
@@ -39,20 +43,17 @@ class SessionForm extends React.Component {
             <div className="login-form-container">
                 {this.props.otherForm}
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    Welcome to Pinterest
-                    <br />
+                    <div className="header-link">P</div>
+                    <div id="welcome">Welcome to Pinterest</div> 
+                    <div id="slogan">Find new ideas to try</div> 
+                    <br/>
                     {this.renderErrors()}
                     <div className="login-form">
-                        <br />
-                        <label>Email:
-                            <input type="text" value={this.state.email} onChange={this.update('email')} className="login-input"/>
-                        </label>
-                        <br />
-                        <label>Password:
-                            <input type="password" value={this.state.password} onChange={this.update('password')} className="login-input" />
-                        </label>
-                        <br />
+                        <input type="text" placeholder="email" value={this.state.email} onChange={this.update('email')} className="login-input"/>
+                        <input type="password" placeholder="password" value={this.state.password} onChange={this.update('password')} className="login-input" />
                         <input className="session-submit" type="submit" value={this.props.formType} />
+                        <button className="session-submit" onClick={this.login}>Demo Login</button>
+                        <div id="other-link">{this.props.otherLink}</div>
                     </div>
                 </form>
             </div>

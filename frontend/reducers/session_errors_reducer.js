@@ -1,5 +1,5 @@
 import { RECEIVE_SESSION_ERRORS, RECEIVE_CURRENT_USER } from '../actions/session_actions';
-import { CLOSE_MODAL } from '../actions/modal_actions';
+import { CLOSE_MODAL, OPEN_MODAL } from '../actions/modal_actions';
 
 const _nullErrors = [];
 
@@ -10,6 +10,8 @@ export default (state = _nullErrors, action) => {
             return _nullErrors;
         case RECEIVE_SESSION_ERRORS:
             return action.errors;
+        case OPEN_MODAL: 
+            return _nullErrors;
         case CLOSE_MODAL:
             return _nullErrors;
         default:
