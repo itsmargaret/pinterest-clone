@@ -84,7 +84,7 @@
 }
 
 .session-submit {
-   background-color: $red;
+   background-color: $bright-red;
    color: $white;
    width: 268px;
    height: 40px;
@@ -93,6 +93,10 @@
    font-family: $sans-serif;
    font-weight: 500;
    font-size: 16px;
+}
+
+.session-submit:hover {
+   background-color: $red;
 }
 
 #other-link {

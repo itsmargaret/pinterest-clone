@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import {openModal} from '../../actions/modal_actions';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -14,6 +13,10 @@ class SessionForm extends React.Component {
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value});
+    }
+
+    login() {
+ 
     }
 
     handleSubmit(e) {
@@ -49,6 +52,7 @@ class SessionForm extends React.Component {
                         <input type="text" placeholder="email" value={this.state.email} onChange={this.update('email')} className="login-input"/>
                         <input type="password" placeholder="password" value={this.state.password} onChange={this.update('password')} className="login-input" />
                         <input className="session-submit" type="submit" value={this.props.formType} />
+                        <button className="session-submit" onClick={this.login}>Demo Login</button>
                         <div id="other-link">{this.props.otherLink}</div>
                     </div>
                 </form>
