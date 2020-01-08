@@ -2,18 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import {myFunction} from '../dropdown/dropdown';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
 
     const sessionLinks = () => (
-        // <nav className="login-signup">
-        //     <button onClick={() => openModal('login')}>Log in</button>
-        //     &nbsp;or&nbsp;
-        //     <button onClick={() => openModal('signup')}>Sign up</button>
-        // </nav>
-        <Modal />
+        <div>
+            <Modal />
+        </div>
     );
 
     const personalGreeting = () => {
@@ -36,6 +33,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                         <li>
                             <button>{username}</button>
                         </li>
+                        <div className="border"></div>
                         <li className="dropdown">
                             {/* <button onClick={() => myFunction()} className="dropbtn"><FontAwesomeIcon icon={faEllipsisH} /></button> */}
                             <FontAwesomeIcon icon={faEllipsisH} onClick={() => myFunction()} className="dropbtn"/>
