@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Modal from '../modal/modal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisH, faSearch } from '@fortawesome/free-solid-svg-icons';
 import {myFunction} from '../dropdown/dropdown';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
@@ -21,9 +21,8 @@ const Greeting = ({ currentUser, logout, openModal }) => {
 
         return(
             <hgroup className="header-group">
-                <Link to="/" className="header-link">
-                    <h1>P</h1>
-                </Link>
+                <Link to="/" className="header-link">P</Link>
+                <input type="text" placeholder="    Search" ></input>
                 <nav className="right-nav">
                     <ul className="nav-button">
                         <li>
@@ -38,9 +37,10 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                             <button>{username}</button>
                         </li>
                         <li className="dropdown">
-                            <button onClick={() => myFunction()} className="dropbtn"><FontAwesomeIcon icon={faEllipsisH} /></button>
+                            {/* <button onClick={() => myFunction()} className="dropbtn"><FontAwesomeIcon icon={faEllipsisH} /></button> */}
+                            <FontAwesomeIcon icon={faEllipsisH} onClick={() => myFunction()} className="dropbtn"/>
                             <ul id="myDropdown" className="dropdown-content">
-                                <button onClick={logout}>Log out</button>
+                                <li><a onClick={logout}>Log out</a></li>
                             </ul>
                         </li>
                     </ul>

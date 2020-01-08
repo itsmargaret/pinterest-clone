@@ -1,0 +1,29 @@
+.login-signup {
+   text-align: center;
+}
+
+.login-form-container {
+   display: flex;
+   justify-content: center;
+}
+
+.login-form-box {
+   outline: 1px solid black;
+   padding: 20px;
+   background: white;
+   position: relative;
+}
+
+.login-form {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+}
+
+.login-input {
+   margin-left: 20px;
+}
+
+.session-submit {
+   text-transform: capitalize;
+}
