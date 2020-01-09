@@ -1,11 +1,9 @@
 .modal-child {
    width: 100%;
    height: 100%;
-   background-image: url('https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/5bf738b3-26aa-436e-ae0e-b46fc2c4238c/macyjs-large-opt.png');
-   // background-image: url(../../images/macyjs-large-opt.png);
+   background: url('https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/5bf738b3-26aa-436e-ae0e-b46fc2c4238c/macyjs-large-opt.png');
    background-position: center;
-   background-repeat: no-repeat;
-   background-size: 120%;
+   background-size: cover;
    background-blend-mode: darken;
 }
 
