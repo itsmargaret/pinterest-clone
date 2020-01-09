@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { login } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -9,14 +10,25 @@ class SessionForm extends React.Component {
             password: ''
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoLogin = this.demoLogin.bind(this);
+        // this.loginUser = this.loginUser.bind(this);
     }
 
     update(field) {
         return e => this.setState({[field]: e.currentTarget.value});
     }
 
-    login() {
- 
+    loginUser(user) {
+        this.props.processForm(user)
+    }
+
+    demoLogin() {
+        const user = {
+            email: 'demo@email.com', 
+            password: '123456'
+        }
+        this.setState(user);
+        this.loginUser(user);
     }
 
     handleSubmit(e) {
@@ -52,7 +64,7 @@ class SessionForm extends React.Component {
                         <input type="text" placeholder="email" value={this.state.email} onChange={this.update('email')} className="login-input"/>
                         <input type="password" placeholder="password" value={this.state.password} onChange={this.update('password')} className="login-input" />
                         <input className="session-submit" type="submit" value={this.props.formType} />
-                        <button className="session-submit" onClick={this.login}>Demo Login</button>
+                        {this.props.formType === 'Log in' ? (<button className="session-submit" onClick={this.demoLogin}>Demo Login</button>) : ''}
                         <div id="other-link">{this.props.otherLink}</div>
                     </div>
                 </form>

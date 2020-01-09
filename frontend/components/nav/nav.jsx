@@ -7,12 +7,6 @@ import {myFunction} from '../dropdown/dropdown';
 
 const Greeting = ({ currentUser, logout, openModal }) => {
 
-    const sessionLinks = () => (
-        <div>
-            <Modal />
-        </div>
-    );
-
     const personalGreeting = () => {
         const username = currentUser.email.split("@")[0]
 
@@ -49,7 +43,8 @@ const Greeting = ({ currentUser, logout, openModal }) => {
     };
 
     return (
-        currentUser ? personalGreeting(currentUser, logout) : sessionLinks()
+        currentUser ? personalGreeting(currentUser, logout) : <Modal/>
+        // currentUser ? personalGreeting(currentUser, logout) : null
     );
 };
 
