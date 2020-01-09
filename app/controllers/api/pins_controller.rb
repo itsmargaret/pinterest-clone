@@ -22,10 +22,7 @@ class Api::PinsController < ApplicationController
 
     def show
         @pin = Pin.find(params[:id])
-        if @pin 
-            render 'api/pins/show'
-        else  
-            json 
+        render 'api/pins/show'
     end 
 
     def update

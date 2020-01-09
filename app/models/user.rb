@@ -6,19 +6,23 @@ class User < ApplicationRecord
 
     attr_reader :password 
 
-    has_many :boards
+    has_many :boards,
+        dependent: :destroy
 
     has_many :board_follows, 
         foreign_key: :follower_id, 
-        class_name: :Board_follow
+        class_name: :Board_follow, 
+        dependent: :destroy
 
     has_many :pins, 
         foreign_key: :author_id, 
-        class_name: :Pin
+        class_name: :Pin, 
+        dependent: :destroy
 
     has_many :followed_boards, 
         through: :board_follows, 
-        source: :board 
+        source: :board, 
+        dependent: :destroy
 
     def password=(password)
         @password = password

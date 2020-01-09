@@ -1,0 +1,2 @@
+module Api::BoardFollowsHelper
+end

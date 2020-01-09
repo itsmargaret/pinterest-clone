@@ -26,10 +26,7 @@ class Api::BoardsController < ApplicationController
 
     def show
         @board = Board.find(params[:id])
-        if @board 
-            render 'api/boards/show'
-        else  
-            json 
+        render 'api/boards/show'
     end 
 
     def update
