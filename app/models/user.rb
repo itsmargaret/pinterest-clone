@@ -6,6 +6,16 @@ class User < ApplicationRecord
 
     attr_reader :password 
 
+    has_many :boards
+
+    has_many :board_follows, 
+        foreign_key: :follower_id, 
+        class_name: :Board_follows
+
+    has_many :followed_boards, 
+        through: :board_follows, 
+        source: :board 
+
     def password=(password)
         @password = password
         self.password_digest = BCrypt::Password.create(password)
