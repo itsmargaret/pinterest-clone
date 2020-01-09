@@ -10,7 +10,11 @@ class User < ApplicationRecord
 
     has_many :board_follows, 
         foreign_key: :follower_id, 
-        class_name: :Board_follows
+        class_name: :Board_follow
+
+    has_many :pins, 
+        foreign_key: :author_id, 
+        class_name: :Pin
 
     has_many :followed_boards, 
         through: :board_follows, 

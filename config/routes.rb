@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     end 
     resource :session, only: [:create, :destroy]
     resources :boards, except: [:new, :edit]
+    resources :pins, except: [:new, :edit]
   end 
 end
