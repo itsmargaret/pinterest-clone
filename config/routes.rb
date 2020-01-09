@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       resources :boards, only: [:index]
     end 
     resource :session, only: [:create, :destroy]
-    resources :boards, except: [:new, :edit]
+    resources :boards, except: [:new, :edit] do 
+      resources :board_follows, only: [:create, :destroy]
+    end 
     resources :pins, except: [:new, :edit]
   end 
 end

@@ -7,5 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('users')
 
-User.create!(email: "user@email.com", password: "123456")
+User.create!(email: "demo@email.com", password: "123456")

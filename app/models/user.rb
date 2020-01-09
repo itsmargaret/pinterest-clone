@@ -11,18 +11,15 @@ class User < ApplicationRecord
 
     has_many :board_follows, 
         foreign_key: :follower_id, 
-        class_name: :Board_follow, 
-        dependent: :destroy
+        class_name: :Board_Follow
 
     has_many :pins, 
         foreign_key: :author_id, 
-        class_name: :Pin, 
-        dependent: :destroy
+        class_name: :Pin
 
     has_many :followed_boards, 
         through: :board_follows, 
-        source: :board, 
-        dependent: :destroy
+        source: :board
 
     def password=(password)
         @password = password
