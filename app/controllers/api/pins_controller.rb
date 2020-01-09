@@ -1,5 +1,5 @@
 class Api::PinsController < ApplicationController
-    before_action :require_logged_in 
+    # before_action :require_logged_in 
 
     def index
         if params[:user_id] 

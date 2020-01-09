@@ -15,11 +15,14 @@ class User < ApplicationRecord
 
     has_many :pins, 
         foreign_key: :author_id, 
-        class_name: :Pin
+        class_name: :Pin,
+        dependent: :destroy
 
     has_many :followed_boards, 
         through: :board_follows, 
         source: :board
+
+    has_one_attached :photo
 
     def password=(password)
         @password = password
