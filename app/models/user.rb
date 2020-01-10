@@ -22,7 +22,7 @@ class User < ApplicationRecord
         through: :board_follows, 
         source: :board
 
-    has_one_attached :photo
+    # has_one_attached :photo
 
     def password=(password)
         @password = password

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
+import {fetchBoards} from './actions/board_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
@@ -18,6 +19,12 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         store = configureStore();
     }
-    
+
+    //FOR TESTING
+    window.dispatch = store.dispatch;
+    window.getState = store.getState;
+    window.fetchBoards = fetchBoards;
+    //TESTING END
+
     ReactDOM.render(<Root store={store} />, root);
 });

@@ -1,5 +1,5 @@
 class Api::BoardsController < ApplicationController
-    # before_action :require_logged_in 
+    before_action :require_logged_in
 
     def index
         if params[:user_id] 
@@ -31,7 +31,7 @@ class Api::BoardsController < ApplicationController
 
     def update
         @board = Board.find(params[:id])
-        if @board.update(board_params)
+        if @board.update(board_params) && current_user.id == @board.user_id
             render 'api/boards/show'
         else 
             render json: @board.errors.full_messages, status: 422
@@ -39,9 +39,13 @@ class Api::BoardsController < ApplicationController
     end 
 
     def destroy
-        @board = current_user.boards.find(params[:id])
-        @board.destroy
-        render {}
+        @board = Board.find(params[:id])
+        if current_user.id == @board.user_id
+            @board.destroy
+            render 'api/boards/show'
+        else 
+            render json: @board.errors.full_messages, status: 422
+        end 
     end 
 
     private 

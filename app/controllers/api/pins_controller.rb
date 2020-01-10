@@ -1,5 +1,5 @@
 class Api::PinsController < ApplicationController
-    # before_action :require_logged_in 
+    before_action :require_logged_in 
 
     def index
         if params[:user_id] 
@@ -27,7 +27,7 @@ class Api::PinsController < ApplicationController
 
     def update
         @pin = Pin.find(params[:id])
-        if @pin.update(pin_params)
+        if @pin.update(pin_params) && current_user.id == @board.author_id
             render 'api/pins/show'
         else 
             render json: @pin.errors.full_messages, status: 422
@@ -35,9 +35,13 @@ class Api::PinsController < ApplicationController
     end 
 
     def destroy
-        @pin = current_user.pins.find(params[:id])
-        @pin.destroy
-        render {}
+        @pin = Pin.find(params[:id])
+        if current_user.id == @board.user_id
+            @pin.destroy
+            render 'api/boards/show'
+        else 
+            render json: @board.errors.full_messages, status: 422
+        end 
     end 
 
     private 
