@@ -1,0 +1,53 @@
+.pin:hover {
+	cursor: zoom-in;
+}
+
+.masonry {
+  margin: 1.5em auto;
+  max-width: 768px;
+  column-gap: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+
+/* The Masonry Brick */
+.pin {
+  padding: 1em;
+  display: flex;
+  max-width: 200px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.button {
+    display: none;
+}
+
+.pin:focus + .button, .button:hover {
+    display: inline-block;
+    height: 100px;
+    color: $red;
+    background-color: $red;
+    z-index: 100;
+}
+
+/* Masonry on large screens */
+@media only screen and (min-width: 1024px) {
+  .masonry {
+    column-count: 6;
+  }
+}
+
+/* Masonry on medium-sized screens */
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+  .masonry {
+    column-count: 5;
+  }
+}
+
+/* Masonry on small screens */
+@media only screen and (max-width: 767px) and (min-width: 540px) {
+  .masonry {
+    column-count: 4;
+  }
+}
