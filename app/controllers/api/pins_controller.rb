@@ -22,6 +22,7 @@ class Api::PinsController < ApplicationController
 
     def show
         @pin = Pin.find(params[:id])
+        # @pin.author = User.find(id: @pin.author_id).email.split("a")[0]
         render 'api/pins/show'
     end 
 

@@ -7,28 +7,33 @@
   max-width: 768px;
   column-gap: 1.5em;
   display: flex;
-  flex-direction: row;
+  margin-top: 76px;
 }
 
-/* The Masonry Brick */
 .pin {
   padding: 1em;
   display: flex;
   max-width: 200px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 200px;
 }
 
 .button {
     display: none;
 }
 
-.pin:focus + .button, .button:hover {
+.pin:hover + .button, .button:hover {
     display: inline-block;
     height: 100px;
     color: $red;
     background-color: $red;
     z-index: 100;
+}
+
+.pin a {
+  flex-wrap: wrap;
 }
 
 /* Masonry on large screens */

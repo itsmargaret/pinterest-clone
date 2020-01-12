@@ -1,0 +1,105 @@
+.show-page {
+    display: flex;
+    margin-top: 76px;
+    font-family: $sans-serif;
+    font-size: 14px;
+    
+}
+
+#fixed {
+    z-index: 100;
+    position: fixed;
+}
+
+.pin-show {
+    width: 508px;
+    margin: auto;
+    border-radius: 30px;
+    border: 1px $light-gray solid;
+    overflow: hidden;
+}
+
+.pin-show > img:hover {
+    cursor: pointer;
+}
+
+.pin-show-text {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.pin-show-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-icon {
+  color: $dark-gray;
+  padding: 12px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 12px;
+  margin-right: 10px;
+  margin-left: 30px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.fa-icon:hover, .fa-icon:focus {
+  background-color: rgb(237, 237, 237);
+  border-radius: 50%;
+}
+
+#save {
+   background-color: $bright-red;
+   color: $white;
+   height: 40px;
+   border-radius: 5px;
+   border: 0.5px solid $red;
+   font-weight: 600;
+   font-size: 16px;
+   display: flex;
+   justify-content: space-around;
+   width: 70px;
+   padding-right: 7px;
+   padding-left: 7px;
+}
+
+#pin-url {
+    font-size: 16px;
+    color: $dark-gray;
+    text-decoration: underline;
+}
+
+#pin-title {
+    font-size: 36px;
+    color: $dark-gray;
+    font-weight: 600;
+    margin-block-start: .25em;
+    margin-block-end: .25em;
+}
+
+#pin-description {
+    color: $dark-gray;
+}
+
+#pin-saved {
+    display: flex;
+    align-items: center;
+}
+
+#pin-saved a {
+    color: $dark-gray;
+    font-weight: bold;
+    margin: 2px;
+}
+
+// #pin-saved img {
+//     border-radius: 50%;
+//     width: 25px;
+//     height: 25px;
+//     z-index: 50;
+// }

@@ -1,5 +1,6 @@
 import React from 'react';
 import PinIndexItem from './pin_index_item';
+import Masonry from 'react-masonry-component';
 
 class PinIndex extends React.Component {
     componentDidMount() {
@@ -8,13 +9,13 @@ class PinIndex extends React.Component {
 
     render() {
         return(
-            <div className="masonry">
-                    {
-                        this.props.pins.map(pin => (
-                            <PinIndexItem pin={pin} key={pin.id} fetchPin={this.props.fetchPin} />
-                        ))
-                    }
-            </div>
+            <Masonry className="masonry">
+                {
+                    this.props.pins.map((pin,i) => (
+                        <PinIndexItem pin={pin} key={i} fetchPin={this.props.fetchPin} />
+                    ))
+                }
+            </Masonry>
         )
     }
 }

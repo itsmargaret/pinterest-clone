@@ -25,11 +25,12 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                             <button>Following</button>
                         </li>
                         <li>
-                            <button>{username}</button>
+                            <Link to={`/${currentUser.id}`}>
+                                <button id="profile-button"><img className="profile-icon" src={currentUser.imageUrl}/> {username}</button>
+                            </Link>
                         </li>
                         <div className="border"></div>
                         <li className="dropdown">
-                            {/* <button onClick={() => myFunction()} className="dropbtn"><FontAwesomeIcon icon={faEllipsisH} /></button> */}
                             <FontAwesomeIcon icon={faEllipsisH} onClick={() => myFunction()} className="dropbtn"/>
                             <ul id="myDropdown" className="dropdown-content">
                                 <li><a onClick={logout}>Log out</a></li>

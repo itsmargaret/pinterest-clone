@@ -1,10 +1,17 @@
 .header-group {
-   height: 56px; 
-   display: flex;
-   justify-content: space-between;
-   border-bottom: 1px solid rgb(223, 221, 221);
-   align-items: center;
+  height: 56px; 
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(223, 221, 221);
+  align-items: center;
+
+  top: 0;
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  background-color: $white;
 }
+
 
 .header-group input[type=text] {
   font-family: $sans-serif;
@@ -52,6 +59,27 @@
    padding: 11px;
    border-radius: 30px;
    cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#profile-button {
+   padding: 8px;
+   border-radius: 25px;
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   min-width: 80px;
+}
+
+.profile-icon {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .dropbtn {

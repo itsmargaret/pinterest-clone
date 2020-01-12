@@ -2,8 +2,8 @@ export const myFunction = () => {
     document.getElementById("myDropdown").classList.toggle("show");
 }
 
-export const myHoverFunction = () => {
-    document.getElementById("save").classList.toggle("show");
+export const myPinFunction = () => {
+    document.getElementById("myPinDropdown").classList.toggle("show");
 }
 
 // Close the dropdown menu if the user clicks outside of it
