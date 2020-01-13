@@ -10,7 +10,7 @@ class PinShow extends React.Component {
     }
 
     render() {
-        if (this.props.pin) {
+        if (this.props.pin && this.props.pin.author) {
             return (
                 <div className="show-page">
                     <Link to="/">
