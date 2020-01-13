@@ -6,7 +6,13 @@ class Board < ApplicationRecord
 
     has_many :board_follows
 
+    has_many :pinnings
+
     has_many :followers, 
         through: :board_follows,
         source: :user 
+
+    has_many :pins,
+        through: :pinnings,
+        source: :pin
 end
