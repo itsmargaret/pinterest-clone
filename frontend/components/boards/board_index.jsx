@@ -9,7 +9,7 @@ class BoardIndex extends React.Component {
 
     render() {
         return (
-            <Masonry className="board-masonry">
+            <Masonry className="masonry">
                 {
                     this.props.boards.map((board, i) => (
                         <BoardIndexItem board={board} key={i} />
