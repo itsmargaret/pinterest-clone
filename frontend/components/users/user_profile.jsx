@@ -1,52 +1,45 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// // import { faEllipsisH, faArrowLeft, faThumbtack } from '@fortawesome/free-solid-svg-icons';
-// // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// // import { myPinFunction } from '../dropdown/dropdown';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {myEditFunction} from '../dropdown/dropdown';
+import BoardIndexContainer from '../boards/board_index_container';
 
-// class UserProfile extends React.Component {
-//     componentDidMount() {
-//         this.props.fetchPin(this.props.match.params.pinId);
-//     }
+class UserProfile extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
-//     render() {
-//         if (this.props.pin) {
-//             return (
-//                 <div className="show-page">
-//                     <Link to="/">
-//                         <FontAwesomeIcon icon={faArrowLeft} id="fixed" className="fa-icon" />
-//                     </Link>
+    componentDidMount() {
+        this.props.fetchUser(this.props.match.params.userId);
+        this.props.fetchBoards();
+    }
 
-//                     <div className="pin-show">
-//                         <a href={this.props.pin.url}><img src={this.props.pin.imageUrl} /></a>
-//                         <div className="pin-show-text">
-//                             <div className="pin-show-buttons">
-//                                 <li className="dropdown">
-//                                     <FontAwesomeIcon className="fa-icon" icon={faEllipsisH} onClick={() => myPinFunction()} />
-//                                     <ul id="myPinDropdown" className="dropdown-content">
-//                                         <li><a href={this.props.pin.imageUrl} download>Download image</a></li>
-//                                     </ul>
-//                                 </li>
+    render() {
+        if (this.props.currentUser) {
+            return (
+                <div className="profile-page">
+                    <li className="dropdown">
+                        <FontAwesomeIcon icon={faPlus} className="dropbtn" onClick={() => myEditFunction()} /> 
+                        <ul id="myEditDropdown" className="dropdown-content">
+                            <li><button>Create board</button></li>
+                            <li><button>Create pin</button></li>
+                        </ul>
+                    </li>
+                    <FontAwesomeIcon icon={faEdit} className="dropbtn"/>
+                    <div id="username">{this.props.currentUser.email.split("@")[0]}</div>
+                    <img src={this.props.currentUser.imageUrl} id="profile-pic" />
+                    <div className="profile-links">
+                        <Link to={`/${this.props.currentUser.id}/boards`}>Boards</Link>
+                        <Link to={`/${this.props.currentUser.id}/pins`}>Pins</Link>
+                    </div>
+                    <BoardIndexContainer />
+                </div>
+            );
+        } else {
+            return null;
+        }
+    }
+}
 
-//                                 <button id="save"><FontAwesomeIcon icon={faThumbtack} /><span>Save</span></button>
-//                             </div>
-//                             <a href={this.props.pin.url} id="pin-url">{this.props.pin.url}</a><br />
-//                             <a href={this.props.pin.url} id="pin-title">{this.props.pin.title}</a><br />
-//                             <div id="pin-description">{this.props.pin.description}</div><br />
-//                             <span id="pin-saved">
-//                                 <a href="#" >{this.props.pin.author.email.split("@")[0]}</a> saved to <a href="#" id="pin-saved"> Board</a>
-//                             </span>
-//                             {/* have author name link to author show page */}
-//                             {/* have board link to board show page */}
-//                         </div>
-//                     </div>
-//                 </div>
-//             );
-//         } else {
-//             return null;
-//         }
-//     }
-// }
-
-
-// export default PinShow;
+export default UserProfile;

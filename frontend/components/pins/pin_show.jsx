@@ -23,9 +23,9 @@ class PinShow extends React.Component {
                             <div className="pin-show-buttons">
                                 <li className="dropdown">
                                     <FontAwesomeIcon className="fa-icon" icon={faEllipsisH} onClick={() => myPinFunction()} />
-                                <ul id="myPinDropdown" className="dropdown-content">
-                                    <li><a href={this.props.pin.imageUrl} download>Download image</a></li>
-                                </ul>
+                                    <ul id="myPinDropdown" className="dropdown-content">
+                                        <li><a href={this.props.pin.imageUrl} download>Download image</a></li>
+                                    </ul>
                                 </li>
                                 
                                 <button id="save"><FontAwesomeIcon icon={faThumbtack} /><span>Save</span></button>

@@ -6,7 +6,7 @@ export const REMOVE_BOARD = 'REMOVE_BOARD';
 
 const receiveBoards = boards => ({
     type: RECEIVE_ALL_BOARDS,
-    boards,
+    boards
 });
 
 const receiveBoard = board => ({
