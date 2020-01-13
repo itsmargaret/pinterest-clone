@@ -3,4 +3,4 @@
         json.extract! board, :id, :title
         json.pins board.pins
     end 
-end 
+end
