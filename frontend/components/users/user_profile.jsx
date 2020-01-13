@@ -21,7 +21,7 @@ class UserProfile extends React.Component {
                     <li className="dropdown">
                         <FontAwesomeIcon icon={faPlus} className="dropbtn" onClick={() => myEditFunction()} /> 
                         <ul id="myEditDropdown" className="dropdown-content">
-                            <li><button>Create board</button></li>
+                            <li><button onClick={() => this.props.openModal('createBoard')}>Create board</button></li>
                             <li><button>Create pin</button></li>
                         </ul>
                     </li>

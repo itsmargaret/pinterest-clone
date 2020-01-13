@@ -1,5 +1,6 @@
 import React from 'react';
 import {AuthRoute} from '../util/route_util';
+import BoardModal from './modal/board_modal';
 import NavContainer from './nav/nav_container';
 import PinIndexContainer from './pins/pin_index_container';
 import PinShowContainer from './pins/pin_show_container';
@@ -11,6 +12,7 @@ import Error from './error/error';
 const App = () => (
     <div>
             <AuthRoute path="/" component={NavContainer} />
+            <BoardModal />
         <Switch>
             <Route path="/pins/:pinId" component={PinShowContainer} />
             {/* <Route path="/:userId/pins" component={UserPinProfile} /> */}

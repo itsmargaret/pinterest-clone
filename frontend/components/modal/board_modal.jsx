@@ -1,17 +1,14 @@
 import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
-import PinFormContainer from '../pins/pin_form_container';
+import BoardFormContainer from '../boards/board_form_container';
 
-function PinModal({ modal, closeModal }) {
+function BoardModal({ modal, closeModal }) {
     if (!modal) {
         return null;
     }
     let component;
     switch (modal) {
-        case 'createPin':
-            component = <PinFormContainer />;
-            break;
         case 'createBoard':
             component = <BoardFormContainer />;
             break;
@@ -21,7 +18,7 @@ function PinModal({ modal, closeModal }) {
 
     return (
         <div className="modal-background" onClick={closeModal}>
-            <div className="modal-child" onClick={e => e.stopPropagation()}>
+            <div className="board-modal-child" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>
@@ -36,4 +33,4 @@ const mapDispatchToProps = dispatch => ({
     closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PinModal);
+export default connect(mapStateToProps, mapDispatchToProps)(BoardModal);
