@@ -8,15 +8,19 @@ class PinIndex extends React.Component {
     }
 
     render() {
-        return(
-            <Masonry className="masonry">
-                {
-                    this.props.pins.map((pin,i) => (
-                        <PinIndexItem pin={pin} key={i} fetchPin={this.props.fetchPin} />
-                    ))
-                }
-            </Masonry>
-        )
+        if (this.props.pins) {
+            return(
+                <Masonry className="masonry">
+                    {
+                        this.props.pins.map((pin,i) => (
+                            <PinIndexItem pin={pin} key={i} fetchPin={this.props.fetchPin} />
+                        ))
+                    }
+                </Masonry>
+            )
+        } else {
+            return null;
+        }
     }
 }
 

@@ -27,7 +27,7 @@ class UserProfile extends React.Component {
                     </li>
                     <FontAwesomeIcon icon={faEdit} className="dropbtn"/>
                     <div id="username">{this.props.currentUser.email.split("@")[0]}</div>
-                    <img src={this.props.currentUser.imageUrl} id="profile-pic" />
+                    {this.props.currentUser.imageUrl ? <img src={this.props.currentUser.imageUrl} id="profile-pic" /> : <div id="profile-pic">{this.props.currentUser.email[0]}</div>}
                     <div className="profile-links">
                         <Link to={`/${this.props.currentUser.id}/boards`}>Boards</Link>
                         <Link to={`/${this.props.currentUser.id}/pins`}>Pins</Link>
