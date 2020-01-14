@@ -3,7 +3,7 @@ class Api::BoardsController < ApplicationController
 
     def index
         if params[:user_id] 
-            @boards = current_user.boards
+            @boards = Board.where(user_id: params[:user_id]).includes(:pins)
         else 
             @boards = Board.all 
         end 

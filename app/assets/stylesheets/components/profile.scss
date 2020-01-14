@@ -14,8 +14,88 @@
   margin: 0px;
 }
 
+.board-masonry {
+  margin: 1.5em auto;
+  max-width: 768px;
+  column-gap: 1.5em;
+  display: flex;
+  margin-top: 76px;
+}
 
+.board-item {
+  width: 300px;
+  height: 200px; 
+  padding: 1em;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 
-.board {
-    height: 300px;
+#board-title {
+  font-family: $sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin-left: 15px;
+}
+
+#pin1 {
+  width: 99px;
+  height: 99px;
+  overflow: hidden;
+  background-color: $light-gray;
+  border: 1px solid $white;
+  box-sizing: border-box;
+}
+
+#pin1 > img {
+  flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+#pin2 {
+  width: 99px;
+  height: 99px;
+  overflow: hidden;
+  background-color: $light-gray;
+  border: 1px solid $white;
+  box-sizing: border-box;
+}
+
+#pin3 {
+  width: 99px;
+  height: 150px;
+  overflow: hidden;
+  background-color: $light-gray;
+  border: 1px solid $white;
+  box-sizing: border-box;
+}
+
+#pin4 {
+  width: 99px;
+  height: 99px;
+  overflow: hidden;
+  background-color: $light-gray;
+  border: 1px solid $white;
+  box-sizing: border-box;
+}
+
+#pin5 {
+  width: 99px;
+  height: 99px;
+  overflow: hidden;
+  background-color: $light-gray;
+  border: 1px solid $white;
+  box-sizing: border-box;
+}
+
+#pin6 {
+  width: 99px;
+  height: 49px;
+  overflow: hidden;
+  background-color: $light-gray;
+  border: 1px solid $white;
+  box-sizing: border-box;
 }

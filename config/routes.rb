@@ -11,5 +11,7 @@ Rails.application.routes.draw do
       resources :board_follows, only: [:create, :destroy]
     end 
     resources :pins, except: [:new, :edit]
+    resources :pinnings, only: [:create]
+    delete '/pinnings', to: 'pinnings#destroy'
   end 
 end

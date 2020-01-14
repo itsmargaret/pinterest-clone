@@ -25,7 +25,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                             <button>Following</button>
                         </li>
                         <li>
-                            <Link to={`/${currentUser.id}`}>
+                            <Link to={`/${currentUser.id}/boards`}>
                                 <button id="profile-button"><img className="profile-icon" src={currentUser.imageUrl}/> {username}</button>
                             </Link>
                         </li>

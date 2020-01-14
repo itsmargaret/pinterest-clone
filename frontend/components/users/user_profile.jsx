@@ -4,6 +4,7 @@ import { faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {myEditFunction} from '../dropdown/dropdown';
 import BoardIndexContainer from '../boards/board_index_container';
+import BoardIndexItem from '../boards/board_index_item';
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -11,7 +12,8 @@ class UserProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.match.params.userId);
+        this.props.fetchUser(this.props.match.params.userId)
+        // this.props.fetchBoards(this.props.match.params.userId)
     }
 
     render() {
@@ -22,7 +24,7 @@ class UserProfile extends React.Component {
                         <FontAwesomeIcon icon={faPlus} className="dropbtn" onClick={() => myEditFunction()} /> 
                         <ul id="myEditDropdown" className="dropdown-content">
                             <li><button onClick={() => this.props.openModal('createBoard')}>Create board</button></li>
-                            <li><button>Create pin</button></li>
+                            <li><Link to="/pin-builder"><button>Create pin</button></Link></li>
                         </ul>
                     </li>
                     <FontAwesomeIcon icon={faEdit} className="dropbtn"/>
@@ -32,7 +34,7 @@ class UserProfile extends React.Component {
                         <Link to={`/${this.props.currentUser.id}/boards`}>Boards</Link>
                         <Link to={`/${this.props.currentUser.id}/pins`}>Pins</Link>
                     </div>
-                    <BoardIndexContainer />
+                    <BoardIndexContainer id={this.props.match.params.userId}/>
                 </div>
             );
         } else {

@@ -4,6 +4,7 @@ import PinIndex from './pin_index';
 
 const mSTP = state => ({
     pins: Object.values(state.entities.pins)
+    // currentUser: state.session.id
 });
 
 const mDTP = dispatch => ({

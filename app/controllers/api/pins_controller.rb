@@ -3,9 +3,10 @@ class Api::PinsController < ApplicationController
 
     def index
         if params[:user_id] 
-            @pins = current_user.pins
+            @pins = Pin.where(author_id: params[:user_id])
         else 
             @pins = Pin.all 
+            @boards = Board.where(user_id: current_user.id)
         end 
         render 'api/pins/index'
     end 

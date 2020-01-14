@@ -5,6 +5,7 @@ import {openModal} from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
     currentUser: state.entities.users[ownProps.match.params.userId]
+    // boards: state.entities.boards
 });
 
 const mapDispatchToProps = dispatch => {

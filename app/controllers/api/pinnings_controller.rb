@@ -14,7 +14,7 @@ class Api::PinningsController < ApplicationController
         @board = @pinning.board
         @pin = @pinning.pin
     if @pinning.destroy
-      render 'api/pinnings/show.json.jbuilder'
+      render 'api/pinnings/show'
     else
       render json: @pinning.errors.full_messages, status: 422
     end

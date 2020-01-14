@@ -46,4 +46,8 @@ pin3 = Pin.create!(title: "the pyramids",
 file5 = open('https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/pyramid.jpg')
 pin3.photo.attach(io: file5, filename: 'pyramid.jpg')
 
-
+Pinning.destroy_all
+ApplicationRecord.connection.reset_pk_sequence!('pinnings')
+Pinning.create!(board_id: 1, pin_id: 1)
+Pinning.create!(board_id: 2, pin_id: 2)
+Pinning.create!(board_id: 3, pin_id: 3)

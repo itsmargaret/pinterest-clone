@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import PinForm from './pin_form';
-import {createPin} from '../../actions/pin_actions';
+import PinningForm from './pin_form';
+import { createPinning } from '../../actions/pin_actions';
 
 const mapStateToProps = state => {
     return {
