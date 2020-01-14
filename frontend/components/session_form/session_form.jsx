@@ -55,7 +55,8 @@ class SessionForm extends React.Component {
             <div className="login-form-container">
                 {this.props.otherForm}
                 <form onSubmit={this.handleSubmit} className="login-form-box">
-                    <div className="header-link">P</div>
+                    {/* <div className="header-link">P</div> */}
+                    <img className="header-link" src="https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/apple-touch-icon.png" alt=""/>
                     <div id="welcome">Welcome to Pinterest</div> 
                     <div id="slogan">Find new ideas to try</div> 
                     <br/>
