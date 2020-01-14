@@ -2,7 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import BoardFormContainer from '../boards/board_form_container';
-import PinningFormContainer from '../pins/pinning_form_container';
+import PinningFormContainer from '../boards/pinning_form_container';
 
 function BoardModal({ modal, closeModal }) {
     if (!modal) {

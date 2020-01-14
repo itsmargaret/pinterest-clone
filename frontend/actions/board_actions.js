@@ -43,3 +43,4 @@ export const deleteBoard = id => dispatch => (
     BoardUtil.deleteBoard(id)
         .then(() => dispatch(removeBoard(id)))
 )
+

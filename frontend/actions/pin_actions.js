@@ -43,3 +43,14 @@ export const deletePin = id => dispatch => (
     PinUtil.deletePin(id)
         .then(() => dispatch(removePin(id)))
 )
+
+export const createPinning = id => dispatch => (
+    PinUtil.createPinning(id)
+        .then((pin) => dispatch(receivePin(pin)))
+)
+
+
+export const deletePinning = id => dispatch => (
+    BoardUtil.deletePinning(id)
+        .then((pin) => dispatch(receivePin(pin)))
+)
