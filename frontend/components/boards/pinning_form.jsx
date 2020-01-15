@@ -50,11 +50,10 @@ class PinningForm extends React.Component {
                         <ul>
                             {
                                 this.props.userBoards.map(board => (
-                                    // <li><a key={board.id} onClick={() => this.update('boardId')}>{board.title}<button className="pin-save">Save</button></a></li>
                                     <li><a onClick={() => this.update(board.id)}>{board.title}<button id="save"><FontAwesomeIcon icon={faThumbtack} /><span>Save</span></button></a></li>
                                 ))
                             }
-                            <li><a id="create-button"><FontAwesomeIcon icon={faPlusCircle} id="plus" />Create board</a></li>
+                            <li><a id="create-button" onClick={() => this.props.openModal('createBoard', null)}><FontAwesomeIcon icon={faPlusCircle} id="plus" />Create board</a></li>
                         </ul>
                     </div>
                 </form>

@@ -9,7 +9,7 @@ function BoardModal({ modal, closeModal }) {
         return null;
     }
     let component;
-    switch (modal.modal) {
+    switch (modal.modal || modal) {
         case 'createBoard':
             component = <BoardFormContainer />;
             break;

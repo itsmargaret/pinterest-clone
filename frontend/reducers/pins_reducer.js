@@ -1,5 +1,5 @@
 import { RECEIVE_ALL_PINS, RECEIVE_PIN, REMOVE_PIN } from '../actions/pin_actions';
-import {RECEIVE_ALL_BOARDS } from '../actions/board_actions';
+import {RECEIVE_ALL_BOARDS, RECEIVE_BOARD } from '../actions/board_actions';
 import {merge } from 'lodash';
 
 const pinsReducer = (state = {}, action) => {
@@ -12,7 +12,8 @@ const pinsReducer = (state = {}, action) => {
             newState[action.pin.id] = action.pin
             return newState;
         case RECEIVE_ALL_BOARDS:
-            merge({}, state, action.pins)
+        case RECEIVE_BOARD:
+            return merge({}, state, action.pins);
             // return action.pins;
             // return newState;
         // case RECEIVE_BOARD:

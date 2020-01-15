@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Masonry from 'react-masonry-component';
 
 const BoardIndexItem = props => {
+    // debugger
     return(
         <div className="profile-board">
             <div className="board-item" key={props.board.id}>

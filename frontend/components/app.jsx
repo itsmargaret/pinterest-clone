@@ -1,5 +1,5 @@
 import React from 'react';
-import {AuthRoute} from '../util/route_util';
+import {AuthRoute, ProtectedRoute} from '../util/route_util';
 import BoardModal from './modal/board_modal';
 import NavContainer from './nav/nav_container';
 import PinIndexContainer from './pins/pin_index_container';
@@ -15,12 +15,14 @@ const App = () => (
             <AuthRoute path="/" component={NavContainer} />
             <BoardModal />
         <Switch>
-            <Route path="/pins/:pinId" component={PinShowContainer} />
+            <ProtectedRoute path="/pins/:pinId" component={PinShowContainer} />
             {/* <Route path="/:userId/pins" component={UserPinProfile} /> */}
-            <Route path="/pin-builder" component={PinFormContainer} />
-            <Route path="/:userId/boards" component={UserProfileContainer} />
-            <Route path="/" component={PinIndexContainer} />
+            <ProtectedRoute path="/pin-builder" component={PinFormContainer} />
+            {/* <ProtectedRoute path="/:userId/boards" component={UserProfileContainer} /> */}
+            <ProtectedRoute path="/:userId" component={UserProfileContainer} />
+            {/* <ProtectedRoute path="/:userId/pins" component={PinsProfileContainer} /> */}
             <Route path='/error' component={Error} />
+            <ProtectedRoute path="/" component={PinIndexContainer} />
             <Redirect to='/error' />
         </Switch>
     </div>

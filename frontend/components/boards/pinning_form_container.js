@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import PinningForm from './pinning_form';
 import { createPinning } from '../../actions/pin_actions';
-import {closeModal} from '../../actions/modal_actions';
+import {closeModal, openModal} from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
     return {
@@ -16,8 +16,9 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     // debugger
     return {
-        processForm: (pin_id, board_id) => dispatch(createPinning(pin_id, board_id)),
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
+        openModal: (modal, pin) => dispatch(openModal(modal, pin)),
+        processForm: (pin_id, board_id) => dispatch(createPinning(pin_id, board_id))
     };
 };
 

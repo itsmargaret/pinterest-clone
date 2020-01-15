@@ -4,6 +4,8 @@ import { faPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {myEditFunction} from '../dropdown/dropdown';
 import BoardIndexContainer from '../boards/board_index_container';
+import PinIndexContainer from '../pins/pin_index_container';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 class UserProfile extends React.Component {
     constructor(props) {
@@ -39,9 +41,21 @@ class UserProfile extends React.Component {
                             <Link to={`/${this.props.currentUser.id}/pins`} id="profile-links">Pins</Link>
                         </div>
                     </div>
-                    <BoardIndexContainer id={this.props.match.params.userId}/>
-                </div>
-                
+                    <Switch>
+                        <Route
+                            path="/:userId/pins"
+                            render={props =>
+                                this.props.currentUser ? <PinIndexContainer /> : <Redirect to="/" />
+                            }
+                        />
+                        <Route
+                            path="/:userId"
+                            render={props =>
+                                this.props.currentUser ? <BoardIndexContainer id={ props.match.params.userId } /> : <Redirect to="/" />
+                            }
+                        />
+                    </Switch>
+                </div> 
             );
         } else {
             return null;

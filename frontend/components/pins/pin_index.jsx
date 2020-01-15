@@ -4,6 +4,7 @@ import Masonry from 'react-masonry-component';
 
 class PinIndex extends React.Component {
     componentDidMount() {
+        // debugger
         this.props.fetchPins();
         this.props.fetchBoards(this.props.currentUser);
     }

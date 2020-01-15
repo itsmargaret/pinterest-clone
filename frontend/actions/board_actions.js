@@ -10,9 +10,10 @@ const receiveBoards = ({boards, pins}) => ({
     pins
 });
 
-const receiveBoard = board => ({
+const receiveBoard = ({board, pins}) => ({
     type: RECEIVE_BOARD,
-    board
+    board, 
+    pins
 });
 
 const removeBoard = id => ({
