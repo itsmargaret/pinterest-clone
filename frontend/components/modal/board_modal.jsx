@@ -9,12 +9,12 @@ function BoardModal({ modal, closeModal }) {
         return null;
     }
     let component;
-    switch (modal) {
+    switch (modal.modal) {
         case 'createBoard':
             component = <BoardFormContainer />;
             break;
         case 'createPinning':
-            component = <PinningFormContainer />;
+            component = <PinningFormContainer  />;
             break;
         default:
             return null;
@@ -30,7 +30,8 @@ function BoardModal({ modal, closeModal }) {
 }
 
 const mapStateToProps = state => ({
-    modal: state.ui.modal
+    modal: state.ui.modal,
+    pin: state.pin
 });
 
 const mapDispatchToProps = dispatch => ({

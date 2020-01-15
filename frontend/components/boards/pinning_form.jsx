@@ -1,26 +1,28 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { faPlusCircle, faThumbtack } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class PinningForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pinId: this.props,
-            boardId: ''
+            pinId: this.props.pin.id,
+            boardId: ""
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    update(field) {
-        return e => this.setState({
-            [field]: e.currentTarget.key
-        });
+    update(id) {
+        this.setState({ boardId: id }, this.handleSubmit)
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        const pinning = Object.assign({}, this.state);
-        this.props.processForm(pinning).then(this.props.closeModal);
+        // e.preventDefault();
+        const pin_id = this.state.pinId 
+        const board_id = this.state.boardId
+        this.props.processForm(pin_id, board_id).then(this.props.closeModal);
+
     }
 
     renderErrors() {
@@ -39,18 +41,21 @@ class PinningForm extends React.Component {
         return (
             <div className="pinning-form-container">
                 <form onSubmit={this.handleSubmit} className="pinning-form-box">
-                    Choose board<div onClick={this.props.closeModal} className="close-x">X</div>
-                    {this.renderErrors()}
-                    {/* <img src={this.props.pins[this.state.pinId].imageUrl} /> */}
-                    <div className="board-form">
-                        {/* <ul>
+                    <div className="board-form-header">
+                        Choose board<div onClick={this.props.closeModal} className="close-x">X</div>
+                        {this.renderErrors()}
+                    </div>
+                    <div className="pinning-form">
+                        <img src={this.props.pin.imageUrl} />
+                        <ul>
                             {
                                 this.props.userBoards.map(board => (
-                                    <li><a key={board.id} onClick={() => this.update('boardId')}>{board.title}</a><input type="submit" value="Save" className="save-button"/></li>
+                                    // <li><a key={board.id} onClick={() => this.update('boardId')}>{board.title}<button className="pin-save">Save</button></a></li>
+                                    <li><a onClick={() => this.update(board.id)}>{board.title}<button id="save"><FontAwesomeIcon icon={faThumbtack} /><span>Save</span></button></a></li>
                                 ))
                             }
-                            <li><a onClick={}>Create board</a></li>
-                        </ul> */}
+                            <li><a id="create-button"><FontAwesomeIcon icon={faPlusCircle} id="plus" />Create board</a></li>
+                        </ul>
                     </div>
                 </form>
             </div>

@@ -1,4 +1,6 @@
 import {RECEIVE_ALL_BOARDS, RECEIVE_BOARD, REMOVE_BOARD } from '../actions/board_actions';
+import {RECEIVE_ALL_PINS} from './pins_reducer';
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
 const boardsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -6,11 +8,17 @@ const boardsReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_ALL_BOARDS:
             return action.boards;
+        //added receive all pins and receive current user 1/14 
+        case RECEIVE_ALL_PINS:
+            return action.boards;
+        // case RECEIVE_CURRENT_USER: 
+        //     newState[action.boards.id] = action.boards;
+        //     return newState;
         case RECEIVE_BOARD:
             // board = action.id.boards;
             // return Object.assign({}, state, { [board.id]: board });
             newState[action.board.id] = action.board;
-            return newState;
+            return newState; 
         case REMOVE_BOARD:
             delete newState[action.id]
             return newState;

@@ -5,10 +5,11 @@ import Masonry from 'react-masonry-component';
 class PinIndex extends React.Component {
     componentDidMount() {
         this.props.fetchPins();
+        this.props.fetchBoards(this.props.currentUser);
     }
 
     render() {
-        if (this.props.pins) {
+        if (this.props.pins && this.props.boards) {
             return(
                 <Masonry className="masonry">
                     {

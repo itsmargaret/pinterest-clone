@@ -35,11 +35,11 @@ export const deletePin = id => (
     })
 );
 
-export const createPinning = id => (
+export const createPinning = (pin_id, board_id) => (
     $.ajax({
         url: 'api/pinnings',
         method: 'POST',
-        data: { id }
+        data: { pinning: {pin_id: pin_id, board_id: board_id }}
     })
 )
 

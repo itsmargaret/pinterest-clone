@@ -1,0 +1,102 @@
+.pinning-form-container {
+   display: flex;
+   align-items: center;
+   margin-top: 76px;
+}
+
+.pinning-form-box {
+   padding: 20px;
+   background: white;
+   margin: auto;
+   font-family: $sans-serif;
+   font-size: 24px;
+   font-weight: 600;
+   color: black;
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   min-width: 804px;
+   // min-height: 700px;
+   border-radius: 1%;
+   z-index: 15;
+}
+
+.pinning-form {
+   display: flex;
+   flex-direction: row;
+   font-size: 16px;
+   font-weight: 600;
+   color: black;
+   width: 100%;
+}
+
+.pinning-form > img {
+   width: 216px;
+    border-radius: 3%;
+    overflow: hidden;
+    display: flex;
+    align-self: flex-start;
+    margin: 80px 40px;
+}
+
+.pinning-form ul {
+   border-left: 1px solid $light-gray;
+}
+
+.pinning-form li > a {
+    padding: 0px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 474px;
+}
+
+#create-button {
+   justify-content: flex-start;
+   border-top: 1px solid $light-gray;
+   padding: 18px;
+}
+
+#plus {
+   color: $red;
+   font-size: 30px;
+   padding-right: 12px;
+}
+
+.pinning-form li > a:hover {
+   background-color: $light-gray;
+   cursor: pointer;
+}
+
+.pin-save {
+    display: flex;
+    background-color: $red;
+    color: $white;
+    font-family: $sans-serif;
+   height: 40px;
+   border-radius: 15px;
+   border: 0.5px solid $bright-red;
+   font-weight: 600;
+   font-size: 14px;
+   width: 70px;
+   justify-content: center;
+   align-content: center;
+   right: 25px;
+}
+
+
+// .session-submit {
+//    background-color: $bright-red;
+//    color: $white;
+//    width: 268px;
+//    height: 40px;
+//    border-radius: 5px;
+//    border: 0.5px solid $red;
+//    font-family: $sans-serif;
+//    font-weight: 500;
+//    font-size: 16px;
+// }
+
+// .session-submit:hover {
+//    background-color: $red;
+// }

@@ -6,7 +6,8 @@ export const REMOVE_BOARD = 'REMOVE_BOARD';
 
 const receiveBoards = ({boards, pins}) => ({
     type: RECEIVE_ALL_BOARDS,
-    boards, pins
+    boards, 
+    pins
 });
 
 const receiveBoard = board => ({

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import {myFunction} from '../dropdown/dropdown';
 
-const Greeting = ({ currentUser, logout, openModal }) => {
+const Greeting = ({ currentUser, logout }) => {
 
     const personalGreeting = () => {
         const username = currentUser.email.split("@")[0]
@@ -33,7 +33,9 @@ const Greeting = ({ currentUser, logout, openModal }) => {
                         <li className="dropdown">
                             <FontAwesomeIcon icon={faEllipsisH} onClick={() => myFunction()} className="dropbtn"/>
                             <ul id="myDropdown" className="dropdown-content">
-                                <li><a onClick={logout}>Log out</a></li>
+                                <li>
+                                    <a onClick={logout}>Log out</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

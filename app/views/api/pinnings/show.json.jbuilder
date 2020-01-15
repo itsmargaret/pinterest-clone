@@ -1,2 +1,2 @@
-json.pinId @pinning.pin_id
-json.boardId @pinning.board_id
+json.pin_id @pinning.pin_id
+json.board_id @pinning.board_id

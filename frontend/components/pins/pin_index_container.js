@@ -6,6 +6,7 @@ import modal from '../modal/modal';
 
 const mSTP = state => ({
     pins: Object.values(state.entities.pins),
+    boards: Object.values(state.entities.boards),
     currentUser: state.session.id
 });
 
@@ -13,7 +14,7 @@ const mDTP = dispatch => ({
     fetchPins: () => dispatch(fetchPins()), 
     fetchPin: id => dispatch(fetchPin(id)), 
     fetchBoards: id => dispatch(fetchBoards(id)),
-    openModal: (modal) => dispatch(openModal(modal))
+    openModal: (modal, pin) => dispatch(openModal(modal, pin))
 });
 
 export default connect(mSTP, mDTP)(PinIndex);

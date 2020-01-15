@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => {
     return({
         fetchUser: id => dispatch(fetchUser(id)),
-        openModal: modal => dispatch(openModal(modal))
+        openModal: (modal, pin) => dispatch(openModal(modal, pin))
     })
 };
 

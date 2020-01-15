@@ -24,7 +24,7 @@ class UserProfile extends React.Component {
                             <li className="dropdown">
                                 <FontAwesomeIcon icon={faPlus} className="dropbtn" onClick={() => myEditFunction()} /> 
                                 <ul id="myEditDropdown" className="dropdown-content">
-                                    <li><a onClick={() => this.props.openModal('createBoard')}>Create board</a></li>
+                                    <li><a onClick={() => this.props.openModal('createBoard', null)}>Create board</a></li>
                                     <li><Link to="/pin-builder">Create pin</Link></li>
                                 </ul>
                             </li>

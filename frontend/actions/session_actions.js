@@ -10,6 +10,12 @@ const receiveCurrentUser = user => ({
     user
 });
 
+// const receiveCurrentUser = ({user, boards}) => ({
+//     type: RECEIVE_CURRENT_USER,
+//     user, 
+//     boards
+// });
+
 const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER
 });

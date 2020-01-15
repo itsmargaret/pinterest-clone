@@ -4,9 +4,10 @@ export const RECEIVE_ALL_PINS = 'RECEIVE_ALL_PINS';
 export const RECEIVE_PIN = 'RECEIVE_PIN';
 export const REMOVE_PIN = 'REMOVE_PIN';
 
-const receivePins = pins => ({
+const receivePins = ({pins, boards}) => ({
     type: RECEIVE_ALL_PINS,
-    pins
+    pins,
+    boards
 });
 
 const receivePin = pin => ({
@@ -44,11 +45,10 @@ export const deletePin = id => dispatch => (
         .then(() => dispatch(removePin(id)))
 )
 
-export const createPinning = id => dispatch => (
-    PinUtil.createPinning(id)
+export const createPinning = (pin_id, board_id) => dispatch => (
+    PinUtil.createPinning(pin_id, board_id)
         .then((pin) => dispatch(receivePin(pin)))
 )
-
 
 export const deletePinning = id => dispatch => (
     BoardUtil.deletePinning(id)

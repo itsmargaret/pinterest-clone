@@ -1,22 +1,22 @@
 import { connect } from 'react-redux';
 import PinningForm from './pinning_form';
-import { createPinning } from '../../actions/board_actions';
-import {openModal, closeModal} from '../../actions/modal_actions';
+import { createPinning } from '../../actions/pin_actions';
+import {closeModal} from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
     return {
         errors: state.errors.session,
         formType: 'createPinning',
-        currentUser: state.entities.users[state.session.id],
-        pins: state.entities.pins,
-        // userBoards: state.entities.boards
+        // currentUser: state.entities.users[state.session.id]
+        pin: state.ui.modal.pin,
+        userBoards: Object.values(state.entities.boards)
     };
 };
 
 const mapDispatchToProps = dispatch => {
+    // debugger
     return {
-        processForm: (id) => dispatch(createPinning(id)),
-        openModal: (modal) => dispatch(openModal(modal)),
+        processForm: (pin_id, board_id) => dispatch(createPinning(pin_id, board_id)),
         closeModal: () => dispatch(closeModal())
     };
 };

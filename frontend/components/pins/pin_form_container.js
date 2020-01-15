@@ -6,13 +6,15 @@ const mapStateToProps = state => {
     return {
         errors: state.errors.session,
         formType: 'createPin',
-        currentUser: state.entities.users[state.session.id]
+        currentUser: state.entities.users[1],
+        boards: Object.values(state.entities.boards)
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        processForm: (pin) => dispatch(createPin(pin))
+        processForm: (pin) => dispatch(createPin(pin)),
+        fetchBoards: (id) => dispatch(fetchBoards(id))
     };
 };
 

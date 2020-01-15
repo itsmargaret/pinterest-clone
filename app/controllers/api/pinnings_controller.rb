@@ -9,20 +9,26 @@ class Api::PinningsController < ApplicationController
         end
     end
 
-  def destroy
-    @pinning = Pinning.where(board_id: params[:pinning][:board_id], pin_id: params[:pinning][:pin_id])
-        @board = @pinning.board
-        @pin = @pinning.pin
-    if @pinning.destroy
+    def destroy
+      @pinning = Pinning.where(board_id: params[:pinning][:board_id], pin_id: params[:pinning][:pin_id])
+      @pinning.destroy
       render 'api/pinnings/show'
-    else
-      render json: @pinning.errors.full_messages, status: 422
-    end
-  end
+    end 
+    
+  # def destroy
+  #   @pinning = Pinning.where(board_id: params[:pinning][:board_id], pin_id: params[:pinning][:pin_id])
+  #       @board = @pinning.board
+  #       @pin = @pinning.pin
+  #   if @pinning.destroy
+  #     render 'api/pinnings/show'
+  #   else
+  #     render json: @pinning.errors.full_messages, status: 422
+  #   end
+  # end
 
   private
 
   def pinning_params
-    params.require(:pinning).permit(:board_id, :pin_id)
+    params.require(:pinning).permit(:pin_id, :board_id)
   end
 end
