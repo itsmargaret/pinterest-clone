@@ -39,7 +39,9 @@ class BoardForm extends React.Component {
         return (
             <div className="board-form-container">
                 <form onSubmit={this.handleSubmit} className="board-form-box">
-                    Create board <div onClick={this.props.closeModal} className="close-x">X</div>
+                    <div className="board-form-header">
+                        <div id="create">Create board</div><div onClick={this.props.closeModal} className="close-x">X</div>
+                    </div>
                     {this.renderErrors()}
                     <div className="board-form">
                         <label>Name:
@@ -51,8 +53,10 @@ class BoardForm extends React.Component {
                             />
                         </label>
                     </div>
-                        <button onClick={this.props.closeModal}>Cancel</button>
-                        <input className="session-submit" type="submit" value={this.props.formType} />
+                    <div className="board-modal-buttons">
+                        <button className="board-submit" onClick={this.props.closeModal}>Cancel</button>
+                        <input className="board-submit" type="submit" value={this.props.formType} />
+                    </div>
                 </form>
             </div>
         );

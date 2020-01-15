@@ -12,7 +12,7 @@ const Greeting = ({ currentUser, logout, openModal }) => {
 
         return(
             <hgroup className="header-group">
-                <Link to="/" className="header-link">P</Link>
+                <Link to="/" className="header-link"><img className="header-link" src="https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/apple-touch-icon.png" alt="" /></Link>
                 <input type="text" placeholder="    Search" ></input>
                 <nav className="right-nav">
                     <ul className="nav-button">
