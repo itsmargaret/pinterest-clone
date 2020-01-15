@@ -13,7 +13,13 @@ class PinIndex extends React.Component {
                 <Masonry className="masonry">
                     {
                         this.props.pins.map((pin,i) => (
-                            <PinIndexItem pin={pin} key={i} openModal={this.props.openModal} fetchPin={this.props.fetchPin} />
+                            <PinIndexItem key={i} 
+                                pin={pin} 
+                                openModal={this.props.openModal} 
+                                fetchPin={this.props.fetchPin} 
+                                fetchBoards={this.props.fetchBoards}
+                                currentUser={this.props.currentUser} 
+                            />
                         ))
                     }
                 </Masonry>
