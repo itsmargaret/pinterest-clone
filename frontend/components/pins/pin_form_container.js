@@ -14,7 +14,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchBoards: (id) => dispatch(fetchBoards(id)),
-        processForm: (pin) => dispatch(createPin(pin))
+        processForm: (pin) => dispatch(createPin(pin)),
+        
     };
 };
 

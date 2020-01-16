@@ -1,7 +1,7 @@
 json.boards do 
     @boards.each do |board|
         json.set! board.id do 
-            json.extract! board, :id, :title, :pin_ids
+            json.extract! board, :id, :title, :pin_ids, :user_id
         end 
     end 
 end

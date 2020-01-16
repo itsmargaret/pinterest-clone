@@ -13,12 +13,12 @@ class UserProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.match.params.userId)
-        // this.props.fetchBoards(this.props.match.params.userId)
+        this.props.fetchUser(this.props.match.params.userId);
+        this.props.fetchBoards(this.props.match.params.userId);
     }
 
     render() {
-        if (this.props.currentUser) {
+        if (this.props.user) {
             return (
                 <div>
                     <div className="profile-page">
@@ -33,25 +33,25 @@ class UserProfile extends React.Component {
                             <FontAwesomeIcon icon={faEdit} className="dropbtn"/>
                         </div>
                         <div className="user-info">
-                            <div id="username">{this.props.currentUser.email.split("@")[0]}</div>
-                            {this.props.currentUser.imageUrl ? <img src={this.props.currentUser.imageUrl} id="profile-pic" /> : <div id="profile-pic">{this.props.currentUser.email[0]}</div>}
+                            <div id="username">{this.props.user.email.split("@")[0]}</div>
+                            {this.props.user.imageUrl ? <img src={this.props.user.imageUrl} id="profile-pic" /> : <div id="profile-pic">{this.props.user.email[0]}</div>}
                         </div>
                         <div >
-                            <Link to={`/${this.props.currentUser.id}/boards`} id="profile-links">Boards</Link>
-                            <Link to={`/${this.props.currentUser.id}/pins`} id="profile-links">Pins</Link>
+                            <Link to={`/${this.props.user.id}/boards`} id="profile-links">Boards</Link>
+                            <Link to={`/${this.props.user.id}/pins`} id="profile-links">Pins</Link>
                         </div>
                     </div>
                     <Switch>
                         <Route
                             path="/:userId/pins"
                             render={props =>
-                                this.props.currentUser ? <PinIndexContainer user={this.props.currentUser} /> : <Redirect to="/" />
+                                this.props.user ? <PinIndexContainer user={this.props.user} /> : <Redirect to="/" />
                             }
                         />
                         <Route
                             path="/:userId"
                             render={props =>
-                                this.props.currentUser ? <BoardIndexContainer id={ props.match.params.userId } /> : <Redirect to="/" />
+                                this.props.user ? <BoardIndexContainer id={ props.match.params.userId } /> : <Redirect to="/" />
                             }
                         />
                     </Switch>

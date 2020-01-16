@@ -48,9 +48,9 @@ class PinForm extends React.Component {
         formData.append('pin[description]', this.state.description);
         formData.append('pin[photo]', this.state.photoFile);
         formData.append('pin[author_id]', this.props.currentUser.id);
+        formData.append('pin[board_ids][]', this.state.boardId);
 
         this.props.processForm(formData)
-            .then((pin, board) => dispatch(createPinning(pin.id, this.state.boardId)))          
     }
 
     renderErrors() {
@@ -75,7 +75,7 @@ class PinForm extends React.Component {
                         <div className="pin-dd">
                             <select
                                 // value={this.state.board ? this.state.board : "Select"}
-                                onChange={(e) => this.setState({ board: e.target.value })}>
+                                onChange={(e) => this.setState({ boardId: e.target.value })}>
                                 <option value="Choose a location" selected disabled>Select</option>
                                 {
                                     this.props.boards.map(board => <option value={board.id}>{board.title}</option>)

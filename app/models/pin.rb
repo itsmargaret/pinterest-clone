@@ -6,7 +6,8 @@ class Pin < ApplicationRecord
         class_name: :User 
 
     has_many :pinnings, 
-        dependent: :destroy
+        dependent: :destroy, 
+        inverse_of: :pin
 
     has_many :boards,
         through: :pinnings,

@@ -6,6 +6,7 @@ import PinIndexContainer from './pins/pin_index_container';
 import PinShowContainer from './pins/pin_show_container';
 import PinFormContainer from './pins/pin_form_container';
 import UserProfileContainer from './users/user_profile_container';
+import BoardShowContainer from './boards/board_show_container';
 // import UserProfile from './users/user_profile';
 import {Switch, Route, Redirect} from 'react-router-dom';
 import Error from './error/error';
@@ -18,6 +19,7 @@ const App = () => (
             <ProtectedRoute path="/pins/:pinId" component={PinShowContainer} />
             <ProtectedRoute path="/pin-builder" component={PinFormContainer} />
             <ProtectedRoute path="/:userId" component={UserProfileContainer} />
+            {/* <ProtectedRoute path="/:userId/:boardId" component={BoardShowContainer} /> */}
             <Route path='/error' component={Error} />
             <ProtectedRoute path="/" component={PinIndexContainer} />
             <Redirect to='/error' />
