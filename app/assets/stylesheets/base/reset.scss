@@ -14,6 +14,10 @@ menu, ul, ol {
   background: transparent;
 }
 
+ *:focus {
+   outline: 0;
+ }
+
 ul {
   list-style: none;
 }

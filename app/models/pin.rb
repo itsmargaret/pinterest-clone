@@ -5,7 +5,8 @@ class Pin < ApplicationRecord
         foreign_key: :author_id, 
         class_name: :User 
 
-    has_many :pinnings
+    has_many :pinnings, 
+        dependent: :destroy
 
     has_many :boards,
         through: :pinnings,

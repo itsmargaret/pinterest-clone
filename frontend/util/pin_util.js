@@ -5,6 +5,13 @@ export const fetchPins = () => (
     })
 );
 
+export const fetchUserPins = (id) => (
+    $.ajax({
+        method: 'GET',
+        url: `api/users/${id}/pins`
+    })
+);
+
 export const fetchPin = id => (
     $.ajax({
         method: 'GET',
@@ -12,7 +19,7 @@ export const fetchPin = id => (
     })
 );
 
-export const createPin = FormData => (
+export const createPin = (formData) => (
     $.ajax({
         method: 'POST',
         url: 'api/pins',

@@ -16,11 +16,8 @@ const App = () => (
             <BoardModal />
         <Switch>
             <ProtectedRoute path="/pins/:pinId" component={PinShowContainer} />
-            {/* <Route path="/:userId/pins" component={UserPinProfile} /> */}
             <ProtectedRoute path="/pin-builder" component={PinFormContainer} />
-            {/* <ProtectedRoute path="/:userId/boards" component={UserProfileContainer} /> */}
             <ProtectedRoute path="/:userId" component={UserProfileContainer} />
-            {/* <ProtectedRoute path="/:userId/pins" component={PinsProfileContainer} /> */}
             <Route path='/error' component={Error} />
             <ProtectedRoute path="/" component={PinIndexContainer} />
             <Redirect to='/error' />

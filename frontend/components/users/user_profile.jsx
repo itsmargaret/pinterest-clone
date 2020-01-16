@@ -45,7 +45,7 @@ class UserProfile extends React.Component {
                         <Route
                             path="/:userId/pins"
                             render={props =>
-                                this.props.currentUser ? <PinIndexContainer /> : <Redirect to="/" />
+                                this.props.currentUser ? <PinIndexContainer user={this.props.currentUser} /> : <Redirect to="/" />
                             }
                         />
                         <Route

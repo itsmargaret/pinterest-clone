@@ -6,7 +6,8 @@ class Board < ApplicationRecord
 
     has_many :board_follows
 
-    has_many :pinnings
+    has_many :pinnings,
+        dependent: :destroy
 
     has_many :followers, 
         through: :board_follows,

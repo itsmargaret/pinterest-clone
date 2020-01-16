@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {createPinning} from '../../actions/pin_actions';
 
 class PinForm extends React.Component {
     constructor(props) {
@@ -10,8 +11,9 @@ class PinForm extends React.Component {
             title: '',
             url: '',
             description: '',
-            board: '',
-            photoFile: null
+            boardId: '',
+            photoFile: null, 
+            photoUrl: null
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
@@ -28,19 +30,27 @@ class PinForm extends React.Component {
     }
 
     handleFile(e) {
-        this.setState({photoFile: e.currentTarget.files[0]})
+        const file = e.currentTarget.files[0];
+        const fileReader = new FileReader();
+        fileReader.onloadend = () => {
+            this.setState({photoFile: file, photoUrl: fileReader.result});
+        };
+        if (file) {
+            fileReader.readAsDataURL(file);
+        }
     }
 
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('post[title]', this.state.title);
-        formData.append('post[url]', this.state.url);
-        formData.append('post[description]', this.state.description);
-        formData.append('post[photoFile]', this.state.photoFile);
+        formData.append('pin[title]', this.state.title);
+        formData.append('pin[url]', this.state.url);
+        formData.append('pin[description]', this.state.description);
+        formData.append('pin[photo]', this.state.photoFile);
+        formData.append('pin[author_id]', this.props.currentUser.id);
 
         this.props.processForm(formData)
-            .then(pin => this.props.pinning(pin.id, this.state.board.id))
+            .then((pin, board) => dispatch(createPinning(pin.id, this.state.boardId)))          
     }
 
     renderErrors() {
@@ -58,6 +68,7 @@ class PinForm extends React.Component {
     render() {
         if (this.props.currentUser.email) {
             const username = this.props.currentUser.email.split("@")[0] 
+            const preview = this.state.photoUrl ? <img src={this.state.photoUrl}/> : null;
             return (
                 <div className="pin-form-container">
                     <form onSubmit={this.handleSubmit} className="pin-form-box">
@@ -67,7 +78,7 @@ class PinForm extends React.Component {
                                 onChange={(e) => this.setState({ board: e.target.value })}>
                                 <option value="Choose a location" selected disabled>Select</option>
                                 {
-                                    this.props.boards.map(board => <option value={board.title}>{board.title}</option>)
+                                    this.props.boards.map(board => <option value={board.id}>{board.title}</option>)
                                 }
                             </select>
                         </div>
@@ -77,6 +88,7 @@ class PinForm extends React.Component {
                         <div className="pin-form">
                             <input type="file" onChange={this.handleFile} id="media-upload-input" accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"/>
                             <div id="pic-text"><div id="text"><FontAwesomeIcon icon={faArrowCircleUp} /><br/> Drag and drop or click to upload</div></div>
+                            {preview ? <div id="preview">{preview}</div> : null}
                             <input type="text"
                                 placeholder="Add your title"
                                 value={this.state.title}

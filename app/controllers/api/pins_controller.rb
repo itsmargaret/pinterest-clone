@@ -4,6 +4,7 @@ class Api::PinsController < ApplicationController
     def index
         if params[:user_id] 
             @pins = Pin.where(author_id: params[:user_id])
+            @boards = []
         else 
             @pins = Pin.all 
             @boards = Board.where(user_id: current_user.id)
@@ -14,6 +15,7 @@ class Api::PinsController < ApplicationController
     def create
         @pin = Pin.new(pin_params)
         @pin.author_id = current_user.id 
+        # debugger
         if @pin.save
             render 'api/pins/show'
         else

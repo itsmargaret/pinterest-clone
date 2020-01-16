@@ -22,7 +22,6 @@ class PinningForm extends React.Component {
         const pin_id = this.state.pinId 
         const board_id = this.state.boardId
         this.props.processForm(pin_id, board_id).then(this.props.closeModal);
-
     }
 
     renderErrors() {
