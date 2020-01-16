@@ -2,12 +2,11 @@
 .pin-form-container {
    display: flex;
    align-items: center;
-    margin-top: 76px;
+   background-color: $light-gray;
+   height: 1000px;
 }
 
 .pin-form-box {
-   border: 1px solid black;
-   padding: 20px;
    background: white;
    position: relative;
    align-self: center;
@@ -16,12 +15,59 @@
    font-size: 16px;
    color: $dark-gray;
    display: flex;
-   align-items: center;
+   align-items: flex-end;
    flex-direction: column;
-   min-width: 440px;
-   min-height: 500px;
+   min-width: 840px;
+   min-height: 610px;
    border-radius: 2%;
    z-index: 15;
+   margin-top: 76px;
+}
+
+.pin-dd {
+   position: absolute;
+   top: 20px;
+   right: 149px;
+   font-family: $sans-serif;
+   z-index: 2;
+}
+
+.pin-dd select {
+   background-color: $light-gray;
+   width: 180px;
+   font-weight: 400;
+   color: $gray;
+  background-color: $light-gray;
+  border: 1px solid $light-gray;
+  border-radius: 11px;
+  font-size: 17px;
+  height: 40px;
+}
+
+#space {
+   height: 40px;
+   width: 5px;
+   background-color: $light-gray;
+   position: absolute;
+   z-index: 4;
+   right: 148px;
+   top: 20px;
+}
+
+.pin-submit {
+   background-color: $bright-red;
+   color: $white;
+   width: 80px;
+   height: 40px;
+   border-radius: 5px;
+   border: 0.5px solid $red;
+   font-family: $sans-serif;
+   font-weight: 500;
+   font-size: 16px;
+   position: relative;
+   top: 5px;
+   right: 61px;
+   z-index: 1;
 }
 
 .pin-form {
@@ -31,33 +77,99 @@
    flex-direction: column;
 }
 
-.pin-input {
-  font-family: $sans-serif;
-  font-weight: 400;
-  background-color: $light-gray;
-  border: 1px solid $light-gray;
-  border-radius: 5px;
-  font-size: 16px;
-  padding: 9px 14px;
-  border: 0.5px solid $dark-gray;
-  box-sizing: border-box;
-  letter-spacing: -.4px;
-  width: 268px;
-  height: 40px;
+#media-upload-input {
+   cursor: pointer;
+    position: absolute;
+    left: 50px;
+    top: 120px;
+    font-size: 0;
+    background-color: $light-gray;
+    border: 1px dashed $gray;
+    height: 388px;
+    width: 258px;
+    border-radius: 3px;
 }
 
-.session-submit {
-   background-color: $bright-red;
-   color: $white;
-   width: 268px;
-   height: 40px;
-   border-radius: 5px;
-   border: 0.5px solid $red;
-   font-family: $sans-serif;
-   font-weight: 500;
+#pic-text {
    font-size: 16px;
+    color: $gray;
+    background-color: transparent;
+    cursor: default;
+    flex-wrap: wrap;
+    width: 150px;
+    text-align: center;
+    left: 105px;
+    position: absolute;
+    top: 261px;
 }
 
-.session-submit:hover {
-   background-color: $red;
+#text {
+   display: inline-block;
+}
+
+#pin-title {
+   border-bottom: 1px solid $light-gray;
+   border-top: 1px solid $white;
+   border-right: 1px solid $white;
+   border-left: 1px solid $white;
+   font-family: $sans-serif;
+   color: $gray;
+   margin-right: 73px;
+   margin-top: 35px;
+   width: 420px;
+   font-weight: 700;
+   padding-bottom: 8px;
+}
+
+#pin-user {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   font-size: 14px;
+   color: black;
+   font-weight: 600;
+   margin-top: 30px;
+   margin-left: 3px;
+   align-self: flex-start;
+}
+
+#pin-description {
+   border-bottom: 1px solid $light-gray;
+   border-top: 1px solid $white;
+   border-right: 1px solid $white;
+   border-left: 1px solid $white;
+   font-family: $sans-serif;
+   color: $gray;
+   margin-right: 73px;
+   margin-top: 35px;
+   width: 420px;
+   font-size: 18px;
+   font-weight: 400;
+   padding-bottom: 8px;
+}
+
+#pin-profile-icon {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 0px 8px;
+}
+
+#pin-url {
+   border-bottom: 1px solid $light-gray;
+   border-top: 1px solid $white;
+   border-right: 1px solid $white;
+   border-left: 1px solid $white;
+   font-family: $sans-serif;
+   color: $gray;
+   margin-right: 73px;
+   margin-top: 35px;
+   width: 420px;
+   font-size: 18px;
+   font-weight: 400;
+   padding-bottom: 8px;
+   position: absolute;
+   right: 0;
+   bottom: 30px;
 }
