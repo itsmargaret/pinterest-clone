@@ -40,12 +40,12 @@ class PinEditForm extends React.Component {
 
         return (
             <div className="board-form-container">
-                <form onSubmit={this.handleSubmit} className="pin-form-box">
+                <form onSubmit={this.handleSubmit} className="edit-pin-form-box">
                     <div className="board-form-header">
                         <div id="create">Edit this pin</div><div onClick={this.props.closeModal} className="close-x">X</div>
                     </div>
                     {/* {this.renderErrors()} */}
-                    <div className="pin-edit-form">
+                    <div className="pin-edit-form"> 
                         <div className="pin-edit-inputs">
                             <label>Title:
                                 <input type="text"
