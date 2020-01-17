@@ -16,19 +16,19 @@ demo_user.photo.attach(io: file1, filename: 'demoprofile.jpg')
 
 user2 = User.create!(email: "TisTheSeaSun@email.com", password: "123456")
 file2 = open('https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/profile2.jpg')
-user2.photo.attach(io: file2, filename: '')
+user2.photo.attach(io: file2, filename: 'profile2.jpg')
 
 user3 = User.create!(email: "LifeIsGourd@email.com", password: "123456")
-file3 = open('')
-user3.photo.attach(io: file3, filename: '')
+file3 = open('https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/lifeisgourd.jpg')
+user3.photo.attach(io: file3, filename: 'lifeisgourd.jpg')
 
 user4 = User.create!(email: "BarbeCute@email.com", password: "123456")
-file4 = open('')
-user4.photo.attach(io: file4, filename: '')
+file4 = open('https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/barbecute.jpg')
+user4.photo.attach(io: file4, filename: 'barbecute.jpg')
 
 user5 = User.create!(email: "VinoHowToParty@email.com", password: "123456")
-file5 = open('')
-user5.photo.attach(io: file5, filename: '')
+file5 = open('https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/vinohowtoparty.jpg')
+user5.photo.attach(io: file5, filename: 'vinohowtoparty.jpg')
 
 
 Board.destroy_all
