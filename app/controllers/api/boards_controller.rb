@@ -26,7 +26,11 @@ class Api::BoardsController < ApplicationController
 
     def show
         @board = Board.find(params[:id])
-        render 'api/boards/show'
+        if @board
+            render 'api/boards/show'
+        else 
+            render json: ['Board does not exist'], status: 401
+        end 
     end 
 
     def update
@@ -50,6 +54,6 @@ class Api::BoardsController < ApplicationController
 
     private 
     def board_params
-        params.require(:board).permit(:title, :secret)
+        params.require(:board).permit(:title, :secret, :user_id)
     end 
 end

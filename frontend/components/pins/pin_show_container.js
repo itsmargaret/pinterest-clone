@@ -4,7 +4,8 @@ import { fetchPin } from '../../actions/pin_actions';
 import {openModal} from '../../actions/modal_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    pin: state.entities.pins[ownProps.match.params.pinId]
+    pin: state.entities.pins[ownProps.match.params.pinId], 
+    boards: state.entities.boards 
 });
 
 const mapDispatchToProps = dispatch => ({

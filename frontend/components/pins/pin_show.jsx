@@ -35,7 +35,7 @@ class PinShow extends React.Component {
                             <a href={this.props.pin.url} id="pin-show-title">{this.props.pin.title}</a><br/>
                             <div id="pin-show-description">{this.props.pin.description}</div><br/>
                             <span id="pin-saved">
-                                <Link to={`/${this.props.pin.authorId}`}>{this.props.pin.author.email.split("@")[0]}</Link> saved to <Link to={`/${this.props.pin.authorId}`} id="pin-saved" >Board</Link>
+                                <Link to={`/${this.props.pin.authorId}`}>{this.props.pin.author.email.split("@")[0]}</Link> saved to <Link to={`/${this.props.pin.authorId}/boards/${this.props.pin.boardId}`} id="pin-saved" >{this.props.boards[this.props.pin.boardId].title}</Link>
                             </span>
                             {/* have author name link to author show page */}
                             {/* have board link to board show page */}

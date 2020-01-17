@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import BoardFormContainer from '../boards/board_form_container';
 import PinningFormContainer from '../boards/pinning_form_container';
+import BoardEditFormContainer from '../boards/board_edit_form_container';
 
 function BoardModal({ modal, closeModal }) {
     if (!modal) {
@@ -15,6 +16,9 @@ function BoardModal({ modal, closeModal }) {
             break;
         case 'createPinning':
             component = <PinningFormContainer  />;
+            break;
+        case 'editBoard':
+            component = <BoardEditFormContainer />;
             break;
         default:
             return null;

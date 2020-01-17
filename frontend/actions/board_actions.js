@@ -37,7 +37,7 @@ export const createBoard = board => dispatch => (
 )
 
 export const updateBoard = board => dispatch => (
-    BoardUtil.createBoard(board)
+    BoardUtil.updateBoard(board)
         .then(board => dispatch(receiveBoard(board)))
 )
 

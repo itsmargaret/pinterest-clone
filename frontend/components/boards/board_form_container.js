@@ -5,9 +5,8 @@ import { createBoard } from '../../actions/board_actions';
 
 const mapStateToProps = state => {
     return {
-        errors: state.errors.session,
-        formType: 'Create',
-        currentUser: state.session.id
+        // errors: state.errors.session,
+        user_id: state.session.id
     };
 };
 

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const BoardIndexItem = props => {
     return(
-        <Link to={`/${props.board.userId}/${props.board.id}`}>
+        <Link to={`/${props.board.userId}/boards/${props.board.id}`}>
             <div className="profile-board">
                 <div className="board-item" key={props.board.id}>
                     <div id="pin1">{props.board.pinIds[0] ? <img src={props.pins[props.board.pinIds[0]].imageUrl}/> : ""}</div>

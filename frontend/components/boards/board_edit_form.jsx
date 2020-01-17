@@ -1,14 +1,15 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class BoardForm extends React.Component {
+class BoardEditForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            title: '',
-            userId: this.props.currentUser
-        };
+        this.state = this.props.board;
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.fetchBoard(this.props.location.pathname.split("/")[3])
     }
 
     update(field) {
@@ -19,8 +20,7 @@ class BoardForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const board = Object.assign({}, this.state);
-        this.props.processForm(board).then(this.props.closeModal);
+        this.props.processForm(this.state).then(this.props.closeModal)
     }
 
     // renderErrors() {
@@ -36,17 +36,19 @@ class BoardForm extends React.Component {
     // }
 
     render() {
+        if (!this.props.board) return null;
+
         return (
             <div className="board-form-container">
                 <form onSubmit={this.handleSubmit} className="board-form-box">
                     <div className="board-form-header">
-                        <div id="create">Create board</div><div onClick={this.props.closeModal} className="close-x">X</div>
+                        <div id="create">Edit your board</div><div onClick={this.props.closeModal} className="close-x">X</div>
                     </div>
                     {/* {this.renderErrors()} */}
                     <div className="board-form">
                         <label>Name:
                         <input type="text"
-                                placeholder='Like "Places to Go" or "Recipes to Make"'
+                                placeholder={this.props.board.title}
                                 value={this.state.title}
                                 onChange={this.update('title')}
                                 className="board-input"
@@ -54,8 +56,9 @@ class BoardForm extends React.Component {
                         </label>
                     </div>
                     <div className="board-modal-buttons">
-                        <button className="board-submit" onClick={this.props.closeModal}>Cancel</button>
-                        <input className="board-submit" type="submit" value={this.props.formType} />
+                        <a className="board-submit" onClick={() => this.props.deleteBoard(this.props.board.id).then(this.props.closeModal).then(() => this.props.history.push(`/${this.props.currentUser.id}/boards`))}>Delete</a>
+                        <button className="board-submit" onClick={() => this.props.closeModal}>Cancel</button>
+                        <input className="board-submit" type="submit" value="Save" />
                     </div>
                 </form>
             </div>
@@ -63,4 +66,4 @@ class BoardForm extends React.Component {
     }
 }
 
-export default withRouter(BoardForm);
+export default withRouter(BoardEditForm);

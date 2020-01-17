@@ -18,8 +18,8 @@ const App = () => (
         <Switch>
             <ProtectedRoute path="/pins/:pinId" component={PinShowContainer} />
             <ProtectedRoute path="/pin-builder" component={PinFormContainer} />
+            <ProtectedRoute exact path="/:userId/boards/:boardId" component={BoardShowContainer} />
             <ProtectedRoute path="/:userId" component={UserProfileContainer} />
-            {/* <ProtectedRoute path="/:userId/:boardId" component={BoardShowContainer} /> */}
             <Route path='/error' component={Error} />
             <ProtectedRoute path="/" component={PinIndexContainer} />
             <Redirect to='/error' />
