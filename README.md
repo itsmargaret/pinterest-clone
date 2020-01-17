@@ -1,24 +1,7 @@
-# README
+# Pun-terest
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Link to Live Site](https://pinterest-aa.herokuapp.com/#/)
 
-Things you may want to cover:
+Pun-terest is a full-stack web application inspired by Pinterest. This site is a social media application that allows users to create, share, and discover "punny" images and links through browsing pins and pinning them to boards. 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![alt text](app/assets/images/login-page.png "Login page")

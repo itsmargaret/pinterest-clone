@@ -57,8 +57,8 @@ class SessionForm extends React.Component {
                 <form onSubmit={this.handleSubmit} className="login-form-box">
                     {/* <div className="header-link">P</div> */}
                     <img className="header-link" src="https://pinterest-clone-aa-seeds.s3-us-west-1.amazonaws.com/apple-touch-icon.png" alt=""/>
-                    <div id="welcome">Welcome to Pinterest</div> 
-                    <div id="slogan">Find new ideas to try</div> 
+                    <div id="welcome">Welcome to Pun-terest</div> 
+                    <div id="slogan">Pun-believable...</div> 
                     <br/>
                     {this.renderErrors()}
                     <div className="login-form">
