@@ -41,7 +41,7 @@ class Api::PinsController < ApplicationController
 
     def destroy
         @pin = Pin.find(params[:id])
-        if current_user.id == @pin.user_id
+        if current_user.id == @pin.author_id
             @pin.destroy
             render 'api/pins/show'
         else 

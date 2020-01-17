@@ -41,7 +41,7 @@ export const createPin = pin => dispatch => (
 )
 
 export const updatePin = pin => dispatch => (
-    PinUtil.createPin(pin)
+    PinUtil.updatePin(pin)
         .then(pin => dispatch(receivePin(pin)))
 )
 
