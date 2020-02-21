@@ -76,7 +76,7 @@ class PinForm extends React.Component {
                             <select
                                 // value={this.state.board ? this.state.board : "Select"}
                                 onChange={(e) => this.setState({ boardId: e.target.value })}>
-                                <option value="Choose a location" selected disabled>Select</option>
+                                <option value="Choose a board" selected disabled>Select</option>
                                 {
                                     this.props.boards.map(board => <option value={board.id}>{board.title}</option>)
                                 }
