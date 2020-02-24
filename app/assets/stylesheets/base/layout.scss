@@ -11,3 +11,8 @@ button {
 button:hover {
   background-color: $light-gray;
 }
+
+.errors li {
+	color: $red;
+	list-style: disc;
+}

@@ -50,7 +50,9 @@ class PinForm extends React.Component {
         formData.append('pin[author_id]', this.props.currentUser.id);
         formData.append('pin[board_ids][]', this.state.boardId);
 
-        this.props.processForm(formData)
+        this.props
+          .processForm(formData)
+          .then(this.props.history.push(`/${this.props.currentUser.id}`));
     }
 
     renderErrors() {

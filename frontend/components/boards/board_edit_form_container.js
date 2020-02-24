@@ -6,7 +6,7 @@ import {withRouter} from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        // errors: state.errors.session,
+        errors: state.errors.session,
         currentUser: state.entities.users[state.session.id],
         board: state.entities.boards[ownProps.location.pathname.split("/")[3]]
     };

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end 
     resources :pins, except: [:new, :edit]
     resources :pinnings, only: [:create]
+    resources :searches, only: [:index]
     delete '/pinnings', to: 'pinnings#destroy'
   end 
 end

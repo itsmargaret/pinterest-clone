@@ -3,6 +3,7 @@ import * as BoardUtil from '../util/board_util';
 export const RECEIVE_ALL_BOARDS = 'RECEIVE_ALL_BOARDS';
 export const RECEIVE_BOARD = 'RECEIVE_BOARD';
 export const REMOVE_BOARD = 'REMOVE_BOARD';
+export const RECEIVE_BOARD_ERRORS = "RECEIVE_BOARD_ERRORS";
 
 const receiveBoards = ({boards, pins}) => ({
     type: RECEIVE_ALL_BOARDS,
@@ -19,6 +20,11 @@ const receiveBoard = ({board, pins}) => ({
 const removeBoard = id => ({
     type: REMOVE_BOARD,
     id
+});
+
+const receiveErrors = errors => ({
+  type: RECEIVE_BOARD_ERRORS,
+  errors
 });
 
 export const fetchBoards = id => dispatch => (

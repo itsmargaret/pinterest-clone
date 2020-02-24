@@ -23,28 +23,29 @@ class BoardEditForm extends React.Component {
         this.props.processForm(this.state).then(this.props.closeModal)
     }
 
-    // renderErrors() {
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={`error-${i}`}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
+    renderErrors() {
+        return (
+            <ul className="errors">
+                {this.props.errors.map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {error}
+                    </li>
+                ))}
+            </ul>
+        );
+    }
 
     render() {
         if (!this.props.board) return null;
 
+        // console.log(this.props);
         return (
             <div className="board-form-container">
                 <form onSubmit={this.handleSubmit} className="board-form-box">
                     <div className="board-form-header">
                         <div id="create">Edit your board</div><div onClick={this.props.closeModal} className="close-x">X</div>
                     </div>
-                    {/* {this.renderErrors()} */}
+                    {this.renderErrors()}
                     <div className="board-form">
                         <label>Name:
                         <input type="text"
@@ -58,7 +59,7 @@ class BoardEditForm extends React.Component {
                     <div className="board-modal-buttons">
                         <a className="board-submit" onClick={() => this.props.deleteBoard(this.props.board.id).then(this.props.closeModal).then(() => this.props.history.push(`/${this.props.currentUser.id}/boards`))}>Delete</a>
                         <button className="board-submit" onClick={() => this.props.closeModal}>Cancel</button>
-                        <input className="board-submit" type="submit" value="Save" />
+                        <input className="board-submit" id="edit-save" type="submit" value="Save" />
                     </div>
                 </form>
             </div>
