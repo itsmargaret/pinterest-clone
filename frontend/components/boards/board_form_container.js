@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import BoardForm from './board_form';
 import { createBoard } from '../../actions/board_actions';
+import { withRouter } from "react-router-dom";
 
 const mapStateToProps = state => {
     return {
@@ -17,4 +18,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(BoardForm));

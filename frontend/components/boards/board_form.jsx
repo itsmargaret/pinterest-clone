@@ -20,7 +20,10 @@ class BoardForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const board = Object.assign({}, this.state);
-        this.props.processForm(board).then(this.props.closeModal);
+        this.props
+          .processForm(board)
+          .then(this.props.closeModal)
+          .then(this.props.history.push(`/${this.props.user_id}`));
     }
 
     // renderErrors() {
