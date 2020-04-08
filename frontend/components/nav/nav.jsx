@@ -76,7 +76,7 @@ const Greeting = ({ currentUser, logout }) => {
                   </a>
                 </li>
                 <li onClick={logout}>
-                  <a >Log out</a>
+                  <a>Log out</a>
                 </li>
               </ul>
             </li>
@@ -87,7 +87,6 @@ const Greeting = ({ currentUser, logout }) => {
   };
 
   return currentUser ? personalGreeting(currentUser, logout) : <Modal />;
-  // currentUser ? personalGreeting(currentUser, logout) : null
 };
 
 export default Greeting;

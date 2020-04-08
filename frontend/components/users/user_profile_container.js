@@ -5,8 +5,8 @@ import {openModal} from '../../actions/modal_actions';
 import {fetchBoards} from '../../actions/board_actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    user: state.entities.users[ownProps.match.params.userId]
-    // boards: state.entities.boards
+    user: state.entities.users[ownProps.match.params.userId],
+    currentUserId: state.session.id
 });
 
 const mapDispatchToProps = dispatch => {

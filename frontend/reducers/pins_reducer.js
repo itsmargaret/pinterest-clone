@@ -14,14 +14,6 @@ const pinsReducer = (state = {}, action) => {
         case RECEIVE_ALL_BOARDS:
         case RECEIVE_BOARD:
             return merge({}, state, action.pins);
-            // return action.pins;
-            // return newState;
-        // case RECEIVE_BOARD:
-        //     // pins = action.payload.pins;
-        //     newState[pins] = action.boards.pins
-        //     return newState;
-            // return Object.assign({}, state, pins);
-            //add
         case REMOVE_PIN:
             delete newState[action.id]
             return newState;

@@ -39,8 +39,6 @@ class PinShow extends React.Component {
                             <span id="pin-saved">
                                 <Link to={`/${this.props.pin.authorId}`}>{this.props.pin.author.email.split("@")[0]}</Link> saved this pin
                             </span>
-                            {/* have author name link to author show page */}
-                            {/* have board link to board show page */}
                         </div>
                     </div>
                 </div>

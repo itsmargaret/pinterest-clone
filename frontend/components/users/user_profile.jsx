@@ -22,6 +22,7 @@ class UserProfile extends React.Component {
             return (
                 <div>
                     <div className="profile-page">
+                        {this.props.user.id === this.props.currentUserId ? 
                         <div className="profile-icons">
                             <li className="dropdown">
                                 <FontAwesomeIcon icon={faPlus} className="dropbtn" onClick={() => myEditFunction()} /> 
@@ -32,6 +33,8 @@ class UserProfile extends React.Component {
                             </li>
                             <FontAwesomeIcon icon={faEdit} className="dropbtn"/>
                         </div>
+                        : null}
+                        
                         <div className="user-info">
                             <div id="username">{this.props.user.email.split("@")[0]}</div>
                             {this.props.user.imageUrl ? <img src={this.props.user.imageUrl} id="profile-pic" /> : <div id="profile-pic">{this.props.user.email[0]}</div>}

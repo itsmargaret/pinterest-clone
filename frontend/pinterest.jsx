@@ -21,12 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
-    //FOR TESTING
-    window.dispatch = store.dispatch;
-    window.getState = store.getState;
-    window.fetchBoards = fetchBoards;
-    window.fetchPins = fetchPins;
-    //TESTING END
-
     ReactDOM.render(<Root store={store} />, root);
 });

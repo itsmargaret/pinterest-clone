@@ -7,14 +7,12 @@ const mapStateToProps = state => {
     return {
         errors: state.errors.session,
         formType: 'createPinning',
-        // currentUser: state.entities.users[state.session.id]
         pin: state.ui.modal.pin,
         userBoards: Object.values(state.entities.boards)
     };
 };
 
 const mapDispatchToProps = dispatch => {
-    // debugger
     return {
         closeModal: () => dispatch(closeModal()),
         openModal: (modal, pin) => dispatch(openModal(modal, pin)),

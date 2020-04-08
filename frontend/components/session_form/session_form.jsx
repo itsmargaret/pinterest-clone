@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { login } from '../../actions/session_actions';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -11,7 +10,6 @@ class SessionForm extends React.Component {
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoLogin = this.demoLogin.bind(this);
-        // this.loginUser = this.loginUser.bind(this);
     }
 
     update(field) {

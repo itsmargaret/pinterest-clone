@@ -3,13 +3,13 @@ class Api::BoardsController < ApplicationController
 
     def index
         if params[:user_id] 
-            @boards = Board.where(user_id: params[:user_id]).includes(:pins)
+            @boards = Board.where(user_id: params[:user_id])(:pins)
         else 
             @boards = Board.all 
         end 
         render 'api/boards/index'
             
-        #review this w Ronil
+        #review this for backend search
         # query = params[:query]
         # @boards = Board.where("name LIKE %?%") 
     end 
