@@ -22,8 +22,8 @@ class BoardForm extends React.Component {
         const board = Object.assign({}, this.state);
         this.props
           .processForm(board)
-          .then(this.props.closeModal)
-          .then(this.props.history.push(`/${this.props.user_id}`));
+          .then(this.props.closeModal);
+        //   .then(this.props.history.push(`/${this.props.user_id}`));
     }
 
     // renderErrors() {
