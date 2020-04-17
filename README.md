@@ -100,3 +100,15 @@ A user could follow specific boards. If a user follows another user, it would au
 ### Search
 
 Add backend search function to allow a user to filter pins based on a search query.
+
+---
+
+## Development Setup
+
+1. `npm install`
+2. `bundle install`
+3. `bundle exec rails db:setup`
+4. run postgres
+5. `rails s` for Rails server
+6. `npm start` to run webpack
+7. Navigate to localhost:3000 in the browser
